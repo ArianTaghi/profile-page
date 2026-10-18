@@ -1,0 +1,193 @@
+@use "sass:color";
+
+$bg: #080b0f;
+$surface: #0e1319;
+$text: #f4f7fb;
+$muted: #8d98a7;
+$accent: #9b7cff;
+$accent-2: #c0adff;
+
+@function alpha($color, $amount) {
+  @return color.change($color, $alpha: $amount);
+}
+
+.home {
+  width: min(1180px, calc(100% - 2rem));
+  min-height: calc(100vh - 88px);
+  margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  align-items: center;
+  min-height: calc(100vh - 88px);
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  overflow: hidden;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  direction: rtl;
+  text-align: right;
+}
+
+.hero-copy::before {
+  content: "Software Engineer";
+  display: block;
+  margin-bottom: 1.25rem;
+  color: $accent-2;
+  font-size: .78rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  max-width: 720px;
+  color: $text;
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: -.075em;
+}
+
+.hero-role {
+  margin-top: 1.5rem;
+  color: $text;
+  font-size: clamp(1.1rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.hero-education {
+  margin-top: .55rem;
+  color: $muted;
+  font-size: clamp(.9rem, 1.4vw, 1rem);
+  line-height: 1.8;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 520px;
+  isolation: isolate;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 14% 4% 12% 8%;
+  border: 1px solid alpha($accent, .13);
+  border-radius: 46% 54% 48% 52% / 54% 42% 58% 46%;
+  transform: rotate(-14deg);
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 20% 10% 18% 15%;
+  border: 1px solid alpha(white, .07);
+  border-radius: 52% 48% 57% 43% / 42% 57% 43% 58%;
+  transform: rotate(18deg);
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 25% 20%;
+  z-index: -1;
+  border-radius: 50%;
+  background: alpha($accent, .2);
+  filter: blur(90px);
+}
+
+.hero-orbit {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $accent-2;
+  box-shadow: 0 0 24px 5px alpha($accent, .45);
+}
+
+.hero-orbit-one {
+  top: 24%;
+  right: 23%;
+}
+
+.hero-orbit-two {
+  bottom: 22%;
+  left: 21%;
+  width: 5px;
+  height: 5px;
+}
+
+.placeholder-page {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: min(1180px, calc(100% - 2rem));
+  min-height: calc(100vh - 88px);
+  margin: 0 auto;
+  direction: ltr;
+  text-align: center;
+}
+
+.placeholder-page > div {
+  color: $text;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -.07em;
+}
+
+@media (max-width: 760px) {
+  .home {
+    width: min(100% - 1.5rem, 680px);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 6rem 0 4rem;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy::before {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 17vw, 5.5rem);
+  }
+
+  .hero-visual {
+    min-height: 280px;
+    margin-top: -2rem;
+  }
+
+  .hero-visual::before {
+    inset: 8% 14% 8% 14%;
+  }
+
+  .hero-visual::after {
+    inset: 14% 19% 13% 19%;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero {
+    padding-top: 4rem;
+  }
+
+  .hero-role {
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    min-height: 220px;
+  }
+}
