@@ -1,0 +1,56 @@
+:root {
+  --color-emerald-950: #082b24;
+  --color-emerald-900: #0b3c31;
+  --color-emerald-800: #105544;
+  --color-emerald-700: #176b52;
+  --color-emerald-600: #238366;
+
+  --color-gold-700: #9c7632;
+  --color-gold-600: #b28a3e;
+  --color-gold-500: #c9a45b;
+  --color-gold-400: #e2c77f;
+  --color-gold-200: #f0e3bd;
+
+  --color-ivory-50: #fffdf8;
+  --color-ivory-100: #f8f4e9;
+  --color-ivory-200: #eee6d5;
+  --color-ivory-300: #ded4bf;
+  --color-white: #ffffff;
+
+  --color-text: #18352c;
+  --color-muted: #7b857c;
+  --color-danger: #b84242;
+
+  --shadow-card: 0 28px 85px rgba(0, 0, 0, 0.3);
+  --shadow-button: 0 9px 22px rgba(11, 60, 49, 0.2);
+  --radius-card: 30px;
+  --radius-control: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  direction: rtl;
+  color: var(--color-text);
+  font-family: 'Ghizilchi Estedad', Estedad, Vazirmatn, Tahoma, Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}

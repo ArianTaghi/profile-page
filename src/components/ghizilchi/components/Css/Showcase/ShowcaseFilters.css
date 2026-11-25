@@ -1,0 +1,59 @@
+.showcase-price {
+  position: relative;
+  height: 2.25rem;
+}
+
+.showcase-price-track,
+.showcase-price-fill {
+  position: absolute;
+  height: 0.25rem;
+  border-radius: 999px;
+}
+
+.showcase-price-track {
+  inset: 1rem 0.5rem auto;
+  background: var(--color-ivory-300);
+}
+
+.showcase-price-fill {
+  background: var(--color-emerald-700);
+}
+
+.showcase-price input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(100% - 1rem);
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* The offset keeps both thumbs reachable when the values meet. */
+.showcase-price-min { left: 0; }
+.showcase-price-max { right: 0; }
+
+.showcase-price input::-webkit-slider-thumb {
+  width: 1rem;
+  height: 1rem;
+  appearance: none;
+  border: 2px solid var(--color-ivory-50);
+  border-radius: 50%;
+  background: var(--color-emerald-800);
+  box-shadow: 0 0 0 1px var(--color-emerald-700);
+  cursor: ew-resize;
+  pointer-events: auto;
+}
+
+.showcase-price input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--color-ivory-50);
+  border-radius: 50%;
+  background: var(--color-emerald-800);
+  box-shadow: 0 0 0 1px var(--color-emerald-700);
+  cursor: ew-resize;
+  pointer-events: auto;
+}

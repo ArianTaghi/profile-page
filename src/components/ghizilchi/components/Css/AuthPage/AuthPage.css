@@ -1,0 +1,20 @@
+/* Shared auth panel geometry and only the auth-selection-specific styling. */
+.auth-card { min-height: 610px; }
+.auth-card-content { width: 100%; max-width: 365px; margin-inline: auto; }
+.auth-emblem { color: var(--color-gold-400); background: var(--color-emerald-900); border: 1px solid var(--color-gold-500); box-shadow: 0 8px 24px rgba(8,43,36,.16); }
+.signup-title--auth { text-align: center; font-size: clamp(23px, 3.2vh, 29px); }
+.auth-link { text-decoration: none; }
+.auth-link:hover { color: inherit; }
+.auth-card .signup-button--primary:hover { color: var(--color-ivory-50); }
+.auth-card .signup-button--secondary:hover { color: var(--color-emerald-900); }
+@media (max-height: 650px) { .auth-card { min-height: min(610px, calc(100dvh - 24px)); } }
+
+.auth-card .auth-link {
+  display: flex;
+  flex: 0 0 48px;
+  height: 48px;
+  min-height: 48px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}

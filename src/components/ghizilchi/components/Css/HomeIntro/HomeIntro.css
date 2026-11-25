@@ -1,0 +1,283 @@
+.home-intro {
+  --home-intro-gold: #e8cb87;
+  --home-intro-stage-height: min(80svh, 54rem);
+  --home-intro-inset: clamp(1rem, 3.3vw, 3.25rem);
+  min-height: calc(var(--home-intro-stage-height) + 148svh);
+  font-family: Estedad, Vazirmatn, 'Noto Sans Arabic', Tahoma, sans-serif;
+}
+
+.home-intro__stage {
+  position: sticky;
+  top: 10svh;
+  isolation: isolate;
+  height: var(--home-intro-stage-height);
+  overflow: hidden;
+  border: 1px solid #3b4b39;
+  border-radius: var(--radius-card, 30px);
+  background: radial-gradient(ellipse at 100% 100%, #173d30, transparent 65%), #0b201a;
+  color: #fff8ea;
+  box-shadow: 0 18px 45px rgb(11 32 26 / 17%);
+}
+
+.home-intro__scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template: 'copy photo' minmax(0, 1fr) / minmax(0, 0.78fr) minmax(0, 1.22fr);
+  column-gap: var(--home-intro-inset);
+  padding: var(--home-intro-inset);
+  padding-inline-end: calc(var(--home-intro-inset) * 0.65);
+  pointer-events: none;
+}
+
+.home-intro__scene:not(:first-child) {
+  --home-intro-image-opacity: 0;
+  --home-intro-title-opacity: 0;
+  --home-intro-title-visibility: hidden;
+}
+
+.home-intro__photo {
+  position: relative;
+  grid-area: photo;
+  overflow: hidden;
+  border-radius: calc(var(--radius-card, 30px) * 0.58);
+  background: #142820;
+  opacity: var(--home-intro-image-opacity, 1);
+}
+
+.home-intro__photo::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(232 203 135 / 32%);
+  border-radius: inherit;
+  content: '';
+}
+
+.home-intro__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 49% center;
+  transform: scale(var(--home-intro-image-scale, 1));
+}
+
+.home-intro__scene:nth-child(3) .home-intro__photo img {
+  object-position: 56% center;
+}
+
+.home-intro__copy {
+  grid-area: copy;
+  align-self: center;
+  min-width: 0;
+  padding-block-end: 2rem;
+  opacity: var(--home-intro-title-opacity, 1);
+  visibility: var(--home-intro-title-visibility, visible);
+  transform: translateY(var(--home-intro-title-shift, 0));
+}
+
+.home-intro__copy::before {
+  display: block;
+  width: clamp(2.25rem, 4vw, 4rem);
+  height: 1px;
+  margin-block-end: clamp(0.8rem, 2vw, 1.65rem);
+  background: var(--home-intro-gold);
+  content: '';
+}
+
+.home-intro__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4.25vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.44;
+  text-wrap: balance;
+}
+
+.home-intro__title span {
+  display: block;
+  color: var(--home-intro-gold);
+}
+
+.home-intro__showcase {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.home-intro__showcase:hover {
+  color: var(--home-intro-gold);
+}
+
+.home-intro__showcase i,
+.home-intro__skip i {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgb(232 203 135 / 45%);
+  border-radius: 50%;
+  color: var(--home-intro-gold);
+  font-size: 1rem;
+  line-height: 1;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.home-intro__showcase i {
+  margin-inline-start: 0.65rem;
+  vertical-align: middle;
+}
+
+.home-intro__showcase:hover i,
+.home-intro__skip:hover i {
+  background: var(--home-intro-gold);
+  color: #0b201a;
+}
+
+.home-intro__showcase:focus-visible,
+.home-intro__skip:focus-visible {
+  outline: 2px solid var(--home-intro-gold);
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+.home-intro__controls {
+  position: absolute;
+  z-index: 1;
+  inset-block-end: var(--home-intro-inset);
+  inset-inline-start: var(--home-intro-inset);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: min(34%, 21rem);
+}
+
+.home-intro__skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  color: #fff8ea;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-intro__skip:hover {
+  color: var(--home-intro-gold);
+}
+
+.home-intro__steps {
+  display: flex;
+  gap: 0.36rem;
+}
+
+.home-intro__step {
+  width: 0.9rem;
+  height: 2px;
+  border-radius: 2px;
+  background: rgb(255 248 234 / 34%);
+  transition: width 180ms ease, background-color 180ms ease;
+}
+
+.home-intro__step--active {
+  width: 1.75rem;
+  background: var(--home-intro-gold);
+}
+
+@media (max-width: 700px) and (min-height: 490px), (max-width: 480px) {
+  .home-intro {
+    --home-intro-inset: 1rem;
+  }
+
+  .home-intro__stage {
+    border-radius: 22px;
+  }
+
+  .home-intro__scene {
+    grid-template: 'photo' minmax(0, 1.6fr) 'copy' minmax(0, 1fr) / minmax(0, 1fr);
+    row-gap: 0.55rem;
+    padding: 0.7rem 0.7rem 3.8rem;
+  }
+
+  .home-intro__copy {
+    padding: 0 var(--home-intro-inset);
+  }
+
+  .home-intro__title {
+    font-size: clamp(1.65rem, 7.3vw, 3.2rem);
+    line-height: 1.32;
+  }
+
+  .home-intro__controls {
+    inset-block-end: 0.65rem;
+    inset-inline: calc(var(--home-intro-inset) + 0.7rem);
+    width: auto;
+  }
+}
+
+@media (max-height: 480px) {
+  .home-intro__scene {
+    padding-block-start: 0.6rem;
+  }
+
+  .home-intro__copy::before {
+    margin-block-end: 0.45rem;
+  }
+
+  .home-intro__title {
+    font-size: clamp(1.4rem, 6vh, 2.25rem);
+    line-height: 1.28;
+  }
+
+  .home-intro__controls {
+    inset-block-end: 0.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-intro {
+    min-height: 0;
+  }
+
+  .home-intro__stage {
+    position: relative;
+    top: auto;
+    height: auto;
+  }
+
+  .home-intro__scene {
+    position: relative;
+    min-height: min(32rem, 75vh);
+    padding: var(--home-intro-inset);
+  }
+
+  .home-intro__photo,
+  .home-intro__copy {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .home-intro__photo img {
+    position: absolute;
+    inset: 0;
+    transform: none;
+  }
+
+  .home-intro__controls {
+    position: relative;
+    inset: auto;
+    margin: 0 var(--home-intro-inset) var(--home-intro-inset);
+  }
+
+  .home-intro__steps {
+    display: none;
+  }
+
+  .home-intro__showcase i,
+  .home-intro__skip i {
+    transition: none;
+  }
+}

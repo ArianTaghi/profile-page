@@ -1,0 +1,96 @@
+.signup-label {
+  display: block;
+  margin: 7px 1px 0;
+  color: var(--color-emerald-900);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.signup-label:first-child {
+  margin-top: 0;
+}
+
+.signup-input {
+  display: block;
+  width: 100%;
+  height: 46px;
+  padding: 0 15px;
+  color: var(--color-emerald-950);
+  font-size: 13px;
+  line-height: normal;
+  border: 1px solid #ded8c9;
+  border-radius: var(--radius-control);
+  outline: none;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 5px rgba(8, 43, 36, 0.025);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.signup-error {
+  margin: -3px 3px 0;
+  color: var(--color-danger);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.signup-input::placeholder {
+  color: #a0a59b;
+  opacity: 1;
+}
+
+.signup-input:hover {
+  border-color: rgba(178, 138, 62, 0.72);
+}
+
+.signup-input:focus {
+  border-color: var(--color-emerald-600);
+  background: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(35, 131, 102, 0.11), 0 3px 10px rgba(8, 43, 36, 0.04);
+}
+
+.signup-input--sms {
+  height: 39px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.signup-input--sms::placeholder {
+  letter-spacing: normal;
+}
+
+@media (max-height: 700px) {
+
+  .signup-input {
+    height: 44px;
+  }
+
+  .signup-label {
+    margin-top: 5px;
+  }
+}
+
+@media (max-height: 580px) {
+
+  .signup-label {
+    margin-top: 2px;
+    font-size: 12px;
+  }
+
+  .signup-input {
+    height: 38px;
+    border-radius: 11px;
+    font-size: 12px;
+  }
+}
+
+.signup-input.signup-input--error {
+  border-color: #dc2626;
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%, 75% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+}

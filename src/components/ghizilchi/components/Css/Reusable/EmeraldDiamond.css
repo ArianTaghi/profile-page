@@ -1,0 +1,103 @@
+.emerald-diamond {
+  --diamond-light: color-mix(in srgb, var(--color-emerald-600), var(--color-ivory-50) 73%);
+  --diamond-bright: color-mix(in srgb, var(--color-emerald-600), var(--color-ivory-50) 33%);
+  --diamond-edge: color-mix(in srgb, var(--diamond-light), transparent 48%);
+  --diamond-fragment-offset: 0px;
+  --diamond-fragment-angle: 0deg;
+  grid-template-columns: minmax(0, 1fr);
+  padding: clamp(12px, 3vw, 32px);
+  border: 1px solid color-mix(in srgb, var(--color-gold-400), transparent 48%);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(ellipse at 50% 42%, var(--color-emerald-700), transparent 70%),
+    linear-gradient(155deg, var(--color-emerald-800), var(--color-emerald-950));
+  box-shadow: var(--shadow-card);
+  color: var(--color-ivory-50);
+}
+
+.emerald-diamond::before {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid color-mix(in srgb, var(--color-gold-400), transparent 78%);
+  border-radius: calc(var(--radius-card) - 8px);
+  content: "";
+  pointer-events: none;
+}
+
+.emerald-diamond[data-stage="1"] {
+  --diamond-fragment-offset: 16px;
+  --diamond-fragment-angle: 9deg;
+}
+
+.emerald-diamond[data-stage="2"] {
+  --diamond-fragment-offset: 6px;
+  --diamond-fragment-angle: 3deg;
+}
+
+.emerald-diamond-art {
+  max-width: 278px;
+}
+
+.emerald-diamond-orbit,
+.emerald-diamond-sparks {
+  color: var(--color-gold-400);
+}
+
+.emerald-diamond-orbit {
+  opacity: 0.52;
+}
+
+.emerald-diamond-stones {
+  filter: drop-shadow(0 12px 14px color-mix(in srgb, var(--color-emerald-950), transparent 25%));
+}
+
+.emerald-diamond-piece {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 480ms cubic-bezier(.22, .75, .24, 1);
+}
+
+.emerald-diamond-piece--left {
+  transform: translate(calc(0px - var(--diamond-fragment-offset)), calc(var(--diamond-fragment-offset) / 2))
+    rotate(calc(0deg - var(--diamond-fragment-angle)));
+}
+
+.emerald-diamond-piece--right {
+  transform: translate(var(--diamond-fragment-offset), calc(0px - var(--diamond-fragment-offset) / 2))
+    rotate(var(--diamond-fragment-angle));
+}
+
+.emerald-diamond-cracks,
+.emerald-diamond-sparks {
+  transition: opacity 420ms ease;
+}
+
+.emerald-diamond[data-stage="1"] .emerald-diamond-cracks { opacity: .9; }
+.emerald-diamond[data-stage="2"] .emerald-diamond-cracks { opacity: .55; }
+.emerald-diamond[data-stage="3"] .emerald-diamond-cracks { opacity: 0; }
+.emerald-diamond[data-stage="1"] .emerald-diamond-sparks { opacity: .25; }
+.emerald-diamond[data-stage="2"] .emerald-diamond-sparks { opacity: .55; }
+
+@media (max-width: 720px) {
+  .emerald-diamond {
+    min-height: 106px;
+    grid-template-columns: 92px auto;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+  }
+}
+
+.emerald-diamond--compact {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.emerald-diamond--compact::before {
+  content: none;
+}

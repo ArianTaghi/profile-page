@@ -1,0 +1,32 @@
+.signup-screen.auth-frame-screen {
+  height: auto;
+  overflow: visible;
+}
+
+.auth-frame {
+  --auth-form-height: clamp(500px, calc(100dvh - 40px), 610px);
+  grid-template-columns: minmax(0, 510px) minmax(0, 310px);
+  max-width: 836px;
+}
+
+.auth-frame .signup-page {
+  width: 100%;
+  height: var(--auth-form-height);
+  min-height: 0;
+  max-height: none;
+}
+
+.auth-frame .signup-stage-viewport {
+  flex-shrink: 1;
+}
+
+@media (max-width: 720px) {
+  .auth-frame {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 510px;
+  }
+
+  .auth-frame .emerald-diamond {
+    grid-row: 1;
+  }
+}

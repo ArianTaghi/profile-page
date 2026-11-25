@@ -1,0 +1,181 @@
+.signup-header {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  margin-bottom: clamp(20px, 3vh, 29px);
+  text-align: center;
+}
+
+.signup-title {
+  font-size: clamp(26px, 3.5vh, 33px);
+}
+
+.signup-title::before {
+  width: 9px;
+  height: 9px;
+  content: "";
+  transform: rotate(45deg);
+  border: 2px solid var(--color-gold-600);
+  box-shadow: 0 0 0 4px rgba(201, 164, 91, 0.12);
+}
+
+.signup-progress {
+  margin-top: clamp(22px, 3vh, 29px);
+  direction: rtl;
+}
+
+.signup-progress-item {
+  transition: color 220ms ease;
+}
+
+.signup-step {
+  border: 1px solid var(--color-ivory-300);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 3px 10px rgba(8, 43, 36, 0.035);
+  transition: color 220ms ease, background 220ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.signup-step-number,
+.signup-step-check {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transition: opacity 220ms ease, transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.signup-step-number {
+  transform: scale(1) rotate(0deg);
+}
+
+.signup-step-check {
+  transform: scale(0.25) rotate(-35deg);
+}
+
+.signup-step-symbol.is-complete .signup-step-number {
+  opacity: 0;
+  transform: scale(0.45) rotate(24deg);
+}
+
+.signup-step-symbol.is-complete .signup-step-check {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  animation: signup-check-pop 440ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes signup-check-pop {
+  0% { opacity: 0; transform: scale(0.25) rotate(-35deg); }
+  68% { opacity: 1; transform: scale(1.18) rotate(5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.signup-progress-item.activeStage {
+  color: var(--color-emerald-900);
+  font-weight: 800;
+}
+
+.signup-progress-item.activeStage .signup-step {
+  transform: translateY(-1px);
+  border-color: var(--color-gold-500);
+  background: linear-gradient(145deg, var(--color-emerald-700), var(--color-emerald-950));
+  color: var(--color-ivory-50);
+  box-shadow: 0 0 0 4px rgba(201, 164, 91, 0.2), 0 7px 15px rgba(11, 60, 49, 0.17);
+}
+
+.signup-progress-item.is-complete {
+  color: var(--color-gold-700);
+  font-weight: 700;
+}
+
+.signup-progress-item.is-complete .signup-step {
+  border-color: var(--color-gold-500);
+  background: linear-gradient(145deg, var(--color-gold-200), var(--color-gold-400));
+  color: var(--color-emerald-950);
+}
+
+.signup-progress-line {
+  flex: 1 1 auto;
+  background: var(--color-ivory-300);
+  transition: background 220ms ease;
+}
+
+.signup-progress-line.is-complete {
+  background: linear-gradient(90deg, var(--color-gold-400), var(--color-gold-600));
+}
+
+@media (max-width: 480px) {
+
+  .signup-title {
+    font-size: clamp(25px, 6.6vw, 30px);
+  }
+
+  .signup-subtitle {
+    font-size: 11px;
+  }
+
+  .signup-progress {
+    gap: 5px;
+  }
+
+  .signup-progress-item {
+    flex-basis: 76px;
+    gap: 7px;
+    font-size: 9px;
+  }
+
+  .signup-step {
+    width: 37px;
+    height: 37px;
+    flex-basis: 37px;
+  }
+
+  .signup-progress-line {
+    top: 17px;
+  }
+}
+
+@media (max-height: 700px) {
+
+  .signup-header {
+    margin-bottom: 17px;
+  }
+
+  .signup-progress {
+    margin-top: 17px;
+  }
+}
+
+@media (max-height: 580px) {
+
+  .signup-header {
+    margin-bottom: 11px;
+  }
+
+  .signup-title {
+    font-size: 25px;
+  }
+
+  .signup-subtitle {
+    margin-top: 3px;
+    font-size: 11px;
+  }
+
+  .signup-progress {
+    margin-top: 11px;
+  }
+
+  .signup-progress-item {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .signup-step {
+    width: 31px;
+    height: 31px;
+    flex-basis: 31px;
+  }
+
+  .signup-progress-line {
+    top: 14px;
+  }
+}

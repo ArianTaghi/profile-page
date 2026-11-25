@@ -1,0 +1,46 @@
+.ghizilchi-demo {
+  --demo-bar-height: 48px;
+  min-height: 100dvh;
+  background: #f8f4e9;
+
+  .ghizilchi-demo-content { min-height: calc(100dvh - var(--demo-bar-height)); }
+  .signup-screen { min-height: calc(100dvh - var(--demo-bar-height)); }
+  [id] { scroll-margin-top: calc(var(--demo-bar-height) + 16px); }
+
+  .ghizilchi-return-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: var(--demo-bar-height);
+    background: #082b24;
+    color: #fffdf8;
+    border-bottom: 1px solid #c9a45b;
+    font: 12px/1.5 Tahoma, sans-serif;
+  }
+
+  .ghizilchi-return-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: min(1280px, 100%);
+    min-height: var(--demo-bar-height);
+    margin-inline: auto;
+    padding: 6px 16px;
+  }
+
+  .ghizilchi-return-bar a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border: 1px solid #e2c77f;
+    border-radius: 8px;
+    color: #f0e3bd;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .2s, color .2s;
+    &:hover { background: #e2c77f; color: #082b24; }
+    &:focus-visible { outline: 2px solid #fffdf8; outline-offset: 3px; }
+  }
+}

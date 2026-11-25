@@ -1,0 +1,11 @@
+@layer theme, base, components, utilities;
+@import "./font.css";
+@import "bootstrap/dist/css/bootstrap.min.css" layer(base);
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" source("./");
+@import "./components/Css/Theme.css";
+
+@import "./components/Css/AuthPage/Signup.css";
+@import "./components/Css/Reusable/ErrorField.css";
+@import "./components/Css/Reusable/AuthBottuns.css";

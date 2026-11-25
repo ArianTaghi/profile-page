@@ -1,7 +1,7 @@
 import Header from './Header.jsx'
 
 const Weblog = () => (
-  <div className="page-shell">
+  <div className="portfolio-site page-shell">
     <Header />
     <main className="blog-layout" dir="rtl">
       <span className="section-eyebrow">وبلاگ</span>
